@@ -1,6 +1,8 @@
 ﻿(function() {
     'use strict';
 
+    var INTERVAL_LENGTH_IN_MINUTES = 1;
+
     var module = angular.module('main', ['data']);
 
     module.controller('MainController', function($scope, $interval, data) {
@@ -14,12 +16,12 @@
             });
         }
 
-        var handle;
+        var intervalHandle;
         $scope.handleClick = function() {
             $scope.isRunning = !$scope.isRunning;
 
             if ($scope.isRunning) {
-                handle = $interval(function() {
+                intervalHandle = $interval(function() {
                     data.query({ stopId: 0 }).$promise.then(function(response) {
                         handleResponse(response).forEach(function(message) {
                             $scope.stop1Messages.push(message);
@@ -32,13 +34,13 @@
                             $scope.stop2Messages.push(message);
                         });
                     });
-                }, 1000);
+                }, 1000 * INTERVAL_LENGTH_IN_MINUTES);
 
                 return;
             }
 
-            if (handle) {
-                $interval.cancel(handle);
+            if (intervalHandle) {
+                $interval.cancel(intervalHandle);
             }
         };
     });
