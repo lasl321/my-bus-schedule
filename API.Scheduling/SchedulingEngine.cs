@@ -28,7 +28,7 @@ namespace API.Scheduling
         public Route[] Routes { get; set; }
         public int StopCount { get; }
 
-        internal TimeSpan[] GetArrivalTimes(TimeSpan currentTime, int stopId, int routeId)
+        public TimeSpan[] GetArrivalTimes(TimeSpan currentTime, int stopId, int routeId)
         {
             if (stopId >= StopCount)
             {
