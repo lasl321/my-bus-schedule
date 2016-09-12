@@ -26,9 +26,23 @@ namespace API.Scheduling
         public Route[] Routes { get; set; }
         public int StopCount { get; }
 
-        internal DateTime[] GetArrivalTimes(TimeSpan currentTime, int stopId, int routeId)
+        internal TimeSpan[] GetArrivalTimes(TimeSpan currentTime, int stopId, int routeId)
         {
-            throw new NotImplementedException();
+            var route = GetRoute(routeId);
+            var routeStartTime = route.StartTimeOffset + StartTime;
+            var t = routeStartTime;
+            while (t < currentTime)
+            {
+                t = t.Add(TimeSpan.FromMinutes(15.0));
+            }
+
+            return new[]
+            {
+                t,
+                t.Add(TimeSpan.FromMinutes(15))
+            };
         }
+
+        private Route GetRoute(int routeId) => Routes[routeId];
     }
 }
