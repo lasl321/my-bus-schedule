@@ -4,6 +4,8 @@ namespace API.Scheduling
 {
     public class SchedulingEngine : ISchedulingEngine
     {
+        private const int InterStopDelayInMinutes = 2;
+
         private static readonly Route[] DefaultRoutes =
         {
             new Route("R1", TimeSpan.FromMinutes(0)),
@@ -30,16 +32,17 @@ namespace API.Scheduling
         {
             var route = GetRoute(routeId);
             var routeStartTime = route.StartTimeOffset + StartTime;
-            var t = routeStartTime;
-            while (t < currentTime)
+            var stopOffset = TimeSpan.FromMinutes(InterStopDelayInMinutes * stopId);
+            var stopTime = routeStartTime + stopOffset;
+            while (stopTime < currentTime)
             {
-                t = t.Add(TimeSpan.FromMinutes(15.0));
+                stopTime = stopTime.Add(TimeSpan.FromMinutes(15.0));
             }
 
             return new[]
             {
-                t,
-                t.Add(TimeSpan.FromMinutes(15))
+                stopTime,
+                stopTime.Add(TimeSpan.FromMinutes(15))
             };
         }
 
