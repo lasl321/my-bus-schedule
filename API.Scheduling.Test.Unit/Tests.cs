@@ -26,5 +26,12 @@ namespace API.Scheduling.Test.Unit
             var count = _sut.Routes.Length;
             Assert.That(count, Is.EqualTo(3));
         }
+
+        [Test]
+        public void ShouldHave10Stops()
+        {
+            var count = _sut.StopCount;
+            Assert.That(count, Is.EqualTo(10));
+        }
     }
 }

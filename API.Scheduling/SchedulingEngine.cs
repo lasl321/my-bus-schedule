@@ -4,12 +4,13 @@ namespace API.Scheduling
 {
     public class SchedulingEngine : ISchedulingEngine
     {
-        public SchedulingEngine() : this(TimeSpan.Zero)
+        public SchedulingEngine() : this(TimeSpan.Zero, 10)
         {
         }
 
-        internal SchedulingEngine(TimeSpan startTime)
+        internal SchedulingEngine(TimeSpan startTime, int stopCount)
         {
+            StopCount = stopCount;
             StartTime = startTime;
             Routes = new[]
             {
@@ -21,5 +22,6 @@ namespace API.Scheduling
 
         public TimeSpan StartTime { get; }
         public Route[] Routes { get; set; }
+        public int StopCount { get; }
     }
 }
