@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace API.Scheduling.Test.Unit
 {
@@ -6,15 +7,17 @@ namespace API.Scheduling.Test.Unit
     {
         private SchedulingEngine _sut;
 
+        [SetUp]
         public void SetUp()
         {
             _sut = new SchedulingEngine();
         }
 
         [Test]
-        public void Should_2016_09_11_10_02_29()
+        public void ShouldStartScheduleAtMidnight()
         {
-            Assert.That(true, Is.True);
+            var startTime = _sut.StartTime;
+            Assert.That(startTime, Is.EqualTo(new TimeSpan(0, 0, 0)));
         }
     }
 }
