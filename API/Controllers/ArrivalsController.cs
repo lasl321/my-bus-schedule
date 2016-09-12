@@ -27,7 +27,8 @@ namespace API.Controllers
             var stopId = id;
 
             return Enumerable.Range(0, 3)
-                             .Select(x => _engine.GetArrivalTimes(currentTime, stopId, x));
+                             .Select(x => _engine.GetArrivalTimes(currentTime, stopId, x))
+                             .ToList();
         }
     }
 }
