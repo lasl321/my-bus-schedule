@@ -34,11 +34,12 @@ namespace API.Scheduling.Test.Unit
             Assert.That(count, Is.EqualTo(10));
         }
 
-        [TestCase("", 1, 1)]
+        [TestCase("00:00:00", 1, 1)]
         public void ShouldGetArrivalTimes(string currentTime, int stopId, int routeId)
         {
-            var time = DateTime.Parse(currentTime);
+            var time = TimeSpan.Parse(currentTime);
             var arrivalTimes = _sut.GetArrivalTimes(time, stopId, routeId);
+
             Assert.That(arrivalTimes.Length, Is.EqualTo(2));
         }
     }

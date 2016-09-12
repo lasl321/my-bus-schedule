@@ -26,7 +26,7 @@ namespace API.Scheduling
         public Route[] Routes { get; set; }
         public int StopCount { get; }
 
-        internal DateTime[] GetArrivalTimes(DateTime currentTime, int stopId, int routeId)
+        internal DateTime[] GetArrivalTimes(TimeSpan currentTime, int stopId, int routeId)
         {
             throw new NotImplementedException();
         }
