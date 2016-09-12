@@ -19,18 +19,13 @@ namespace API.Controllers
             _engine = engine;
         }
 
-        public IDictionary<int, TimeSpan[]> GetArrivals(int id)
+        public IEnumerable<TimeSpan[]> GetArrivals(int id)
         {
             var currentTime = DateTime.Now.TimeOfDay;
             var stopId = id;
 
             return Enumerable.Range(0, 3)
-                             .Select(x => new
-                             {
-                                 routeId = x,
-                                 arrivalTimes = _engine.GetArrivalTimes(currentTime, stopId, x)
-                             })
-                             .ToDictionary(x => x.routeId, x => x.arrivalTimes);
+                             .Select(x => _engine.GetArrivalTimes(currentTime, stopId, x));
         }
     }
 }
