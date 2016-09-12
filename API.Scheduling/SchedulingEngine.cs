@@ -25,5 +25,10 @@ namespace API.Scheduling
         public TimeSpan StartTime { get; }
         public Route[] Routes { get; set; }
         public int StopCount { get; }
+
+        internal DateTime[] GetArrivalTimes(DateTime currentTime, int stopId, int routeId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

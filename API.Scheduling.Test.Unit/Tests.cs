@@ -33,5 +33,13 @@ namespace API.Scheduling.Test.Unit
             var count = _sut.StopCount;
             Assert.That(count, Is.EqualTo(10));
         }
+
+        [TestCase("", 1, 1)]
+        public void ShouldGetArrivalTimes(string currentTime, int stopId, int routeId)
+        {
+            var time = DateTime.Parse(currentTime);
+            var arrivalTimes = _sut.GetArrivalTimes(time, stopId, routeId);
+            Assert.That(arrivalTimes.Length, Is.EqualTo(2));
+        }
     }
 }
