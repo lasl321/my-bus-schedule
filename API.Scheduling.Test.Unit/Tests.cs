@@ -19,5 +19,12 @@ namespace API.Scheduling.Test.Unit
             var startTime = _sut.StartTime;
             Assert.That(startTime, Is.EqualTo(new TimeSpan(0, 0, 0)));
         }
+
+        [Test]
+        public void ShouldHave3Routes()
+        {
+            var count = _sut.Routes.Length;
+            Assert.That(count, Is.EqualTo(3));
+        }
     }
 }
