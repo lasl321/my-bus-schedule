@@ -8,9 +8,9 @@ namespace API.Scheduling
 
         private static readonly Route[] DefaultRoutes =
         {
-            new Route("R1", TimeSpan.FromMinutes(0)),
-            new Route("R2", TimeSpan.FromMinutes(2)),
-            new Route("R3", TimeSpan.FromMinutes(4))
+            new Route(0, TimeSpan.FromMinutes(0)),
+            new Route(1, TimeSpan.FromMinutes(2)),
+            new Route(2, TimeSpan.FromMinutes(4))
         };
 
         public SchedulingEngine() : this(TimeSpan.Zero, 10, DefaultRoutes)

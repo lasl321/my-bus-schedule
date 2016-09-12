@@ -4,13 +4,13 @@ namespace API.Scheduling
 {
     public struct Route
     {
-        public Route(string name, TimeSpan startTimeOffset)
+        public Route(int id, TimeSpan startTimeOffset)
         {
-            Name = name;
+            _id = id;
             StartTimeOffset = startTimeOffset;
         }
 
-        public string Name;
+        private readonly int _id;
         public TimeSpan StartTimeOffset;
     }
 }
