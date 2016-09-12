@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Web.Models;
 
 namespace Web.Controllers
 {
@@ -6,7 +7,8 @@ namespace Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var model = new HomeViewModel {PageTitle = "My Bus Schedule"};
+            return View(model);
         }
     }
 }
