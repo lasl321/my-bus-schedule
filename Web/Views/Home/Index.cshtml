@@ -13,11 +13,17 @@
 </head>
 <body>
 <div class="container">
-    <div data-ng-app="main"></div>
+    <div data-ng-app="main" data-ng-controller="MainController" class="row">
+        <button ng-click="handleClick()">{{isRunning ? 'Stop': 'Start'}}</button>
+        <div>
+            <span ng-repeat="message in messages track by $index" ng-bind="message"></span>
+        </div>
+    </div>
 </div>
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 @Scripts.Render("~/bundles/angular")
+@Scripts.Render("~/bundles/application")
 </body>
 </html>
