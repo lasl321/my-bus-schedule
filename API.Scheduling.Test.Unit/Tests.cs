@@ -37,6 +37,9 @@ namespace API.Scheduling.Test.Unit
         [TestCase("00:00:00", 1, 0, "00:00:00", "00:15:00")]
         [TestCase("00:00:00", 1, 1, "00:02:00", "00:17:00")]
         [TestCase("00:00:00", 1, 2, "00:04:00", "00:19:00")]
+        [TestCase("00:00:00", 2, 0, "00:02:00", "00:17:00")]
+        [TestCase("00:00:00", 2, 1, "00:04:00", "00:19:00")]
+        [TestCase("00:00:00", 2, 2, "00:06:00", "00:21:00")]
         public void ShouldGetArrivalTimesForRoute1(string currentTime,
                                                    int stopId,
                                                    int routeId,
