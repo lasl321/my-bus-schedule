@@ -1,4 +1,7 @@
 ﻿@model Web.Models.HomeViewModel
+@{
+    Layout = null;
+}
 
 <!DOCTYPE html>
 <html>
@@ -10,10 +13,11 @@
 </head>
 <body>
 <div class="container">
+    <div data-ng-app="main"></div>
 </div>
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", false)
+@Scripts.Render("~/bundles/angular")
 </body>
 </html>
