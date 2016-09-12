@@ -30,6 +30,16 @@ namespace API.Scheduling
 
         internal TimeSpan[] GetArrivalTimes(TimeSpan currentTime, int stopId, int routeId)
         {
+            if (stopId >= StopCount)
+            {
+                throw new ArgumentException("Invalid stop ID", nameof(stopId));
+            }
+
+            if (routeId >= Routes.Length)
+            {
+                throw new ArgumentException("Invalid route ID", nameof(routeId));
+            }
+
             var route = GetRoute(routeId);
             var routeStartTime = route.StartTimeOffset + StartTime;
             var stopOffset = TimeSpan.FromMinutes(InterStopDelayInMinutes * stopId);

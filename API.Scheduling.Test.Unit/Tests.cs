@@ -68,10 +68,10 @@ namespace API.Scheduling.Test.Unit
 
         [TestCase("00:03:00", 9, 2, "00:22:00", "00:37:00")]
         public void ShouldGetArrivalTimesSpotCheck(string currentTime,
-                                                  int stopId,
-                                                  int routeId,
-                                                  string time1,
-                                                  string time2)
+                                                   int stopId,
+                                                   int routeId,
+                                                   string time1,
+                                                   string time2)
         {
             var time = TimeSpan.Parse(currentTime);
             var arrivalTimes = _sut.GetArrivalTimes(time, stopId, routeId);
@@ -79,6 +79,20 @@ namespace API.Scheduling.Test.Unit
             Assert.That(arrivalTimes.Length, Is.EqualTo(2));
             Assert.That(arrivalTimes[0], Is.EqualTo(TimeSpan.Parse(time1)));
             Assert.That(arrivalTimes[1], Is.EqualTo(TimeSpan.Parse(time2)));
+        }
+
+        [Test]
+        public void ShouldThrowExceptionIfRouteIdIsInvalid()
+        {
+            const int invalidRouteId = 10;
+            Assert.Throws<ArgumentException>(() => _sut.GetArrivalTimes(TimeSpan.Zero, 0, invalidRouteId));
+        }
+
+        [Test]
+        public void ShouldThrowExceptionIfStopIdIsInvalid()
+        {
+            const int invalidStopId = 10;
+            Assert.Throws<ArgumentException>(() => _sut.GetArrivalTimes(TimeSpan.Zero, invalidStopId, 0));
         }
     }
 }
