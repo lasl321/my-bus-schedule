@@ -16,7 +16,12 @@
     <div data-ng-app="main" data-ng-controller="MainController" class="row">
         <button ng-click="handleClick()">{{isRunning ? 'Stop': 'Start'}}</button>
         <div>
-            <span ng-repeat="message in messages track by $index" ng-bind="message"></span>
+            <ul>
+                <li ng-repeat="message in stop1Messages track by $index" ng-bind="message"></li>
+            </ul>
+            <ul>
+                <li ng-repeat="message in stop2Messages track by $index" ng-bind="message"></li>
+            </ul>
         </div>
     </div>
 </div>
