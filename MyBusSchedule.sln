@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Scheduling", "API.Sched
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Scheduling.Test.Unit", "API.Scheduling.Test.Unit\API.Scheduling.Test.Unit.csproj", "{907E6A14-AAC1-4DB3-95AE-F39699EAD499}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{C6FCCCE4-79B9-456C-9491-E5A283A19F8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{907E6A14-AAC1-4DB3-95AE-F39699EAD499}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{907E6A14-AAC1-4DB3-95AE-F39699EAD499}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{907E6A14-AAC1-4DB3-95AE-F39699EAD499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6FCCCE4-79B9-456C-9491-E5A283A19F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6FCCCE4-79B9-456C-9491-E5A283A19F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6FCCCE4-79B9-456C-9491-E5A283A19F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6FCCCE4-79B9-456C-9491-E5A283A19F8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
