@@ -87,6 +87,8 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ArrivalsController.cs" />
+    <Compile Include="Controllers\ITimeProvider.cs" />
+    <Compile Include="Controllers\TimeProvider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -9,19 +9,21 @@ namespace API.Controllers
     public class ArrivalsController : ApiController
     {
         private readonly ISchedulingEngine _engine;
+        private readonly ITimeProvider _timeProvider;
 
-        public ArrivalsController() : this(new SchedulingEngine())
+        public ArrivalsController() : this(new SchedulingEngine(), new TimeProvider())
         {
         }
 
-        internal ArrivalsController(ISchedulingEngine engine)
+        internal ArrivalsController(ISchedulingEngine engine, ITimeProvider timeProvider)
         {
             _engine = engine;
+            _timeProvider = timeProvider;
         }
 
         public IEnumerable<TimeSpan[]> GetArrivals(int id)
         {
-            var currentTime = DateTime.Now.TimeOfDay;
+            var currentTime = _timeProvider.CurrentTime;
             var stopId = id;
 
             return Enumerable.Range(0, 3)
